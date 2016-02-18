@@ -4,7 +4,7 @@ var app = require('express')();
 var path = require('path');
 var session = require('express-session');
 
-// app.use(require('./logging.middleware'));
+app.use(require('./logging.middleware'));
 
 app.use(require('./requestState.middleware'));
 
