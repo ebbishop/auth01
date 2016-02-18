@@ -1,10 +1,7 @@
 'use strict';
 
-app.controller('SignupCtrl', function ($scope, $http, $state) {
+app.controller('SignupCtrl', function ($scope, AuthFactory) {
 	$scope.submitSignup = function() {
-		$http.post('/api/signup', $scope.current)
-		.then(function() {
-			$state.go('stories');
-		})
+    return AuthFactory.signup($scope.current);
 	}
 });
