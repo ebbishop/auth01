@@ -1,20 +1,24 @@
 <div class="container story-container">
 	<ul class="list-inline large-font">
 		<li>
-			<span contenteditable
+			<span contenteditable="{{getCurrentUser().email == story.author.email}}"
 				  class="large-font"
 				  ng-model="story.title"
 				  ng-model-options="{debounce: 500}"></span>
 		</li>
 		<li><span class="muted">by</span></li>
 		<li>
-			<select ng-options="user as user.name for user in users track by user._id"
+			<p>{{story.author.name}}</p>
+			<!-- <select ng-options="user as user.name for user in users track by user._id"
 					ng-model="story.author"
-					ng-model-options="{debounce: 500}"></select>
+					ng-model-options="{debounce: 500}"></select> -->
 		</li>
 	</ul>
 	<br>
-	<p contenteditable
+					<p>this is user: {{story.author.email}}</p>
+					<p>this is currentuser: {{getCurrentUser().email}}</p>
+
+	<p contenteditable="{{getCurrentUser().email == story.author.email}}"
 		ng-model="story.paragraphs"
 		ng-model-options="{debounce: 500}"
 		ng-list="<br><br>"
